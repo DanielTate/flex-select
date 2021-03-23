@@ -41,6 +41,7 @@ const build = async () => {
         const timerEnd = Date.now();
         updateLine(`Built in ${timerEnd - timerStart}ms.`, true);
     } catch (e) {
+        console.warn(e)
         // OOPS! ERROR!
     } finally {
         // We command you to stop. Will start again if files change.

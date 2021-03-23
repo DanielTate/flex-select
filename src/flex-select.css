@@ -1,8 +1,14 @@
+
 .flex-select {
     --color: #eee;
     --active: #ffe;
     --background: #fff;
     position: relative;
+    transition: opacity 100ms ease-in;
+}
+
+.flex-select.cloak {
+    opacity: 0;
 }
 
 .flex-select--inputs {
@@ -58,6 +64,10 @@
     top: 2px
 }
 
+.flex-select.flex-select--up .flex-select--items {
+    transform: translateY(-100%);
+}
+
 .flex-select--items {
     position: absolute;
     display: flex;
@@ -70,10 +80,16 @@
     border-left: 1px solid var(--color);
     border-right: 1px solid var(--color);
     border-bottom: 1px solid var(--color);
+    //display: none;
     transition: transform 100ms ease-in, opacity 100ms ease-in;
 }
 
+.flex-select.flex-select--up.active .flex-select--items {
+    transform: translateY(calc(-100% - 40px));
+}
+
 .flex-select.active .flex-select--items {
+    display: flex;
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;

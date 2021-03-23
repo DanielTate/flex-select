@@ -11,6 +11,15 @@ function update_label(id) {
     TEXT.innerHTML = ITEMS.querySelector(`[for="${id}"]`).innerHTML
 }
 
+// If the menu drops outside the window make it animate up instead of down
+const labelBounds = LABEL.getBoundingClientRect()
+const listBounds = ITEMS.getBoundingClientRect()
+const bounds = labelBounds.top + labelBounds.height + listBounds.height 
+
+if(bounds > window.innerHeight) {
+    SELECT.classList.add('flex-select--up')
+}
+
 window.addEventListener('click', e => {
     SELECT.classList.remove('active')
 })
@@ -29,3 +38,5 @@ for (let i = INPUTS.length; i--;) {
         update_label(INPUTS[i].value)
     })
 }
+
+SELECT.classList.remove('cloak')
