@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "node ./esbuild.config.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@deanc/esbuild-plugin-postcss": "github:deanc/esbuild-plugin-postcss",
     "esbuild": "^0.8.57"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.1"
   }
 }
