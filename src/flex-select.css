@@ -1,0 +1,89 @@
+.flex-select {
+    --color: #eee;
+    --active: #ffe;
+    --background: #fff;
+    position: relative;
+}
+
+.flex-select--inputs {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.flex-select[debug] .flex-select--inputs {
+    position: static;
+    pointer-events: all;
+    opacity: 1;
+}
+
+.flex-select--label {
+    position: relative;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: .5em 1em;
+    font-family: sans-serif;
+    font-size: 1em;
+    border: 1px solid var(--color);
+    background-color: var(--background);
+    outline: none;
+    cursor: pointer;
+}
+
+.flex-select--icon {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin-left: .5em;
+    border: 2px solid transparent;
+    border-radius: 100px
+}
+
+.flex-select--icon::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    transform: rotate(45deg);
+    left: 4px;
+    top: 2px
+}
+
+.flex-select--items {
+    position: absolute;
+    display: flex;
+    width: calc(100% - 2px);
+    font-family: sans-serif;
+    flex-direction: column;
+    transform: translateY(-1em);
+    opacity: 0;
+    pointer-events: none;
+    border-left: 1px solid var(--color);
+    border-right: 1px solid var(--color);
+    border-bottom: 1px solid var(--color);
+    transition: transform 100ms ease-in, opacity 100ms ease-in;
+}
+
+.flex-select.active .flex-select--items {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.flex-select--items label {
+    padding: .5em 1em;
+}
+
+.flex-select--items label:hover {
+    background-color: var(--active);
+    cursor: pointer;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "flex-select",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@deanc/esbuild-plugin-postcss": "github:deanc/esbuild-plugin-postcss",
+    "esbuild": "^0.8.57"
+  }
+}
